@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Header } from "@/components/layout/Header";
+import { mainNavItems } from "./config/navigation";
 
 export const metadata: Metadata = {
   title: "Voices - Anonymous Journaling with Connection",
@@ -14,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+      <Header navItems={mainNavItems} />
         {children}
       </body>
     </html>
