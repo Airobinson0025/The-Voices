@@ -126,6 +126,11 @@ body {
   font-family: var(--font-body);
 }
 
+.heading {
+  font-family: var(--font-heading);
+  font-weight: bold;
+}
+
 h1 {
   font-family: var(--font-heading);
   font-weight: bold;

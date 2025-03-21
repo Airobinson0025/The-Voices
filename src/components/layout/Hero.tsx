@@ -1,14 +1,23 @@
 import Link from "next/link"
-import { Button } from "../ui/button"
+import { TextAnimate } from "../magicui/text-animate"
+import { InteractiveHoverButton } from "../magicui/interactive-hover-button"
+
+ 
 
 export function Hero() {
     return (
-        <section className="flex items-center justify-center h-[600px] px-10">
-            <div className="text-center space-y-7 sm:space-y-6">
-                <h1 className="text-5xl lg:text-6xl tracking-tight">Find your<span className="pl-3">voice.</span></h1>
-                <p className="text-md lg:text-lg max-w-3xl leading-7">Express your thoughts freely in a space where anonymity meets community. Share your journey, find connection in others&apos; stories, and discover the power of words without the weight of identity.</p>
-                <Link href='/signup'>
-                    <Button size='xl'>Write your story</Button>
+        <section className="flex items-center justify-center h-[600px] pt-12">
+            <div className="text-center space-y-7">
+                <div className="space-y-2">
+                    <TextAnimate animation="blurInUp" by="character" duration={1} className="font-semibold text-5xl md:text-6xl tracking-tight">
+                    Tell Your Story,
+                    </TextAnimate>
+                    <TextAnimate animation="blurInUp" by="character" duration={1} delay={2} className="font-semibold text-5xl text-rose-500 sm:text-5xl md:text-6xl tracking-tight">
+                    Privately.
+                    </TextAnimate>
+                </div>
+                <Link href='/auth/register'>
+                    <InteractiveHoverButton className="tracking-tight lg:text-lg">Get Started</InteractiveHoverButton>
                 </Link>
             </div>
         </section>

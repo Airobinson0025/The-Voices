@@ -8,17 +8,19 @@ interface HeaderProps {
 
 export function Header({ navItems = mainNavItems }: HeaderProps) {
  return (
-    <header className="fixed top-0 z-40 w-full border-b bg-background px-8">
-        <div className="flex h-16 items-center justify-between">
+    <header className="fixed top-0 z-40 w-full bg-background px-8">
+        <div className="flex h-20 items-center justify-between">
         <div className="">
           <Link href="/" className="">
-            <h3 className="font-medium text-lg">Voices</h3>
+            <h3 className="font-bold text-xl">
+                Voices
+            </h3>
           </Link>
         </div>
 
-        <nav className="flex items-center space-x-8 text-sm font-medium">
+        <nav className="hidden lg:flex items-center space-x-10 text-lg font-medium tracking-tight">
             {navItems.map((item) => (
-                <Link key={item.href} href={item.href} className="hover:scale-110 transition-transform duration-300">
+                <Link key={item.href} href={item.href} className="hover:-translate-y-1 transition-all duration-500">
                     {item.label}
                 </Link>
             ))}
