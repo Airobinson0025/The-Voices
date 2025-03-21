@@ -10,11 +10,15 @@ export const mainNavItems: MainNavItem[] = [
     href: "/discover",
   },
   {
-    label: "My Journal",
+    label: "Journal",
     href: "/journal",
   },
   {
-    label: "About",
-    href: "/about",
+    label: "Write",
+    href: "/write",
+  },
+  {
+    label: "Login",
+    href: "/auth/login",
   },
 ];
