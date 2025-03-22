@@ -14,11 +14,11 @@ export const mainNavItems: MainNavItem[] = [
     href: "/journal",
   },
   {
-    label: "Write",
-    href: "/write",
+    label: "Blog",
+    href: "/blog",
   },
   {
-    label: "Login",
-    href: "/auth/login",
+    label: "About",
+    href: "/about",
   },
 ];
