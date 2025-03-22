@@ -1,5 +1,5 @@
-import { mainNavItems } from "@/app/config/navigation";
-import { MainNavItem } from "@/app/types/navigation";
+import { mainNavItems } from "@/config/navigation";
+import { MainNavItem } from "@/types/navigation";
 import Link from "next/link";
 
 interface HeaderProps {
