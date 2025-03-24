@@ -14,7 +14,7 @@ import {
 import { Input } from "../ui/input";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-// import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import { UserRegistrationData } from "@/types/user";
 import { Eye, EyeOff } from "lucide-react";
 
@@ -66,7 +66,7 @@ type formData = z.infer<typeof registerFormSchema>;
 export function RegisterForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  // const router = useRouter();
+  const router = useRouter();
 
   // Initialize the form with schema
   const form = useForm<formData>({
@@ -106,7 +106,7 @@ export function RegisterForm() {
 
       // redirect to login page if registration is successful
       if (response.ok) {
-        // router.push("/login");
+        router.push("/journal/[id]");
       }
     } catch (error) {
       console.error(error);
