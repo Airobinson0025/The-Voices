@@ -106,7 +106,7 @@ export function RegisterForm() {
 
       // redirect to login page if registration is successful
       if (response.ok) {
-        router.push("/journal/[id]");
+        router.push("/auth/login");
       }
     } catch (error) {
       console.error(error);
