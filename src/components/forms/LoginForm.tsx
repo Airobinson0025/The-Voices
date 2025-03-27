@@ -49,8 +49,12 @@ export function LoginForm() {
         throw new Error(result.message || "Failed to login");
       }
 
+      if (result.success) {
+        localStorage.setItem("auth_token", result.token);
+      }
+
       // Handle successful login
-      window.location.href = "/dashboard"; // Redirect to dashboard
+      // window.location.href = "/dashboard"; // Redirect to dashboard
     } catch (err) {
       setError(
         err instanceof Error ? err.message : "An error occurred during login"

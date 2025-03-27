@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import * as z from "zod";
 import { getUserByEmail } from "@/app/services/userServices";
 import { validatePassword } from "@/app/services/userServices";
-import { createAuthToken } from "@/app/services/authServices";
+import { createAuthToken } from "@/app/services/tokenServices";
 
 type LoginRequest = z.infer<typeof loginSchema>;
 
@@ -56,8 +56,12 @@ export async function POST(
 
     // Check if user exists and password is correct
     const user = await getUserByEmail(email);
+    console.log("User", user);
 
-    if (!user || !(await validatePassword(password, user.hashedPassword))) {
+    const validPassword = await validatePassword(password, user.hashedPassword);
+    console.log("Valid password", validPassword);
+
+    if (!user || !validPassword) {
       return NextResponse.json(
         {
           success: false,
@@ -68,7 +72,8 @@ export async function POST(
     }
 
     // Generate an authentication token
-    const token = createAuthToken(user.id);
+    const token = await createAuthToken(user.id);
+    console.log("Token", token);
 
     return NextResponse.json({
       success: true,
