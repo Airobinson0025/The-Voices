@@ -41,20 +41,15 @@ export function LoginForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
+        credentials: "include",
       });
 
       const result = await response.json();
+      console.log("Login response", result);
 
       if (!response.ok) {
         throw new Error(result.message || "Failed to login");
       }
-
-      if (result.success) {
-        localStorage.setItem("auth_token", result.token);
-      }
-
-      // Handle successful login
-      // window.location.href = "/dashboard"; // Redirect to dashboard
     } catch (err) {
       setError(
         err instanceof Error ? err.message : "An error occurred during login"
@@ -143,7 +138,7 @@ export function LoginForm() {
             <button
               type="submit"
               disabled={isLoading}
-              className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-indigo-300"
+              className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-indigo-300"
             >
               {isLoading ? "Signing in..." : "Sign in"}
             </button>
@@ -193,7 +188,7 @@ export function LoginForm() {
         <p className="mt-10 text-center text-sm text-gray-500">
           Not a member?{" "}
           <a
-            href="/register"
+            href="/auth/register"
             className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
           >
             Create an account

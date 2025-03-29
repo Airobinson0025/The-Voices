@@ -20,7 +20,7 @@ export function Hero() {
             by="character"
             duration={0.5}
             delay={1.3}
-            className="font-semibold text-5xl text-rose-500 sm:text-5xl md:text-6xl tracking-tight"
+            className="font-semibold text-5xl text-indigo-500 sm:text-5xl md:text-6xl tracking-tight"
           >
             Privately.
           </TextAnimate>

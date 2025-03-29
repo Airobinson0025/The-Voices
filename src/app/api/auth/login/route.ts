@@ -45,7 +45,7 @@ export async function POST(
       return NextResponse.json(
         {
           success: false,
-          message: "Invalid login data",
+          message: "Invalid request",
           error: validationResult.error.format(),
         },
         { status: 400 }
@@ -56,16 +56,16 @@ export async function POST(
 
     // Check if user exists and password is correct
     const user = await getUserByEmail(email);
-    console.log("User", user);
+    // console.log("User", user);
 
     const validPassword = await validatePassword(password, user.hashedPassword);
-    console.log("Valid password", validPassword);
+    // console.log("Valid password", validPassword);
 
     if (!user || !validPassword) {
       return NextResponse.json(
         {
           success: false,
-          message: "Invalid credentials",
+          message: "Email or password incorrect",
         },
         { status: 401 }
       );
@@ -73,11 +73,9 @@ export async function POST(
 
     // Generate an authentication token
     const token = await createAuthToken(user.id);
-    console.log("Token", token);
 
-    return NextResponse.json({
-      success: true,
-      message: "Login successful",
+    const response = NextResponse.json({
+      success: true as const, // telling TypeScript that this is a literal value
       user: {
         id: user.id,
         username: user.username,
@@ -86,6 +84,19 @@ export async function POST(
       },
       token,
     });
+
+    // Set the token as an http-only cookie
+    response.cookies.set({
+      name: "auth_token",
+      value: token,
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      maxAge: 60 * 60 * 24, // 1 day
+      path: "/",
+    });
+
+    return response;
   } catch (error) {
     console.error("Login error", error);
     return NextResponse.json(

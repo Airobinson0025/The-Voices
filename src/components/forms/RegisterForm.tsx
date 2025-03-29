@@ -225,7 +225,11 @@ export function RegisterForm() {
             )}
           />
 
-          <Button type="submit" className="w-full" disabled={isLoading}>
+          <Button
+            type="submit"
+            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-indigo-300"
+            disabled={isLoading}
+          >
             {isLoading ? "Creating Account..." : "Create Account"}
           </Button>
         </form>
@@ -234,7 +238,10 @@ export function RegisterForm() {
       <div className="mt-4 text-center text-sm">
         <p className="text-muted-foreground">
           Already have an account?{" "}
-          <a href="/login" className="text-primary hover:underline">
+          <a
+            href="/auth/login"
+            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+          >
             Sign in
           </a>
         </p>
