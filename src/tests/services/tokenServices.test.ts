@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { createAuthToken } from "@/app/services/tokenServices";
+import { createAuthToken } from "@/services/tokenServices";
 import jwt from "jsonwebtoken";
 import { db } from "@/db";
 // import { tokens } from "@/db/schema";

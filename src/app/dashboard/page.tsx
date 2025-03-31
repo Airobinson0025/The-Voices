@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { verifyAuthToken } from "../services/tokenServices";
-import { getUserById } from "../services/userServices";
+import { verifyAuthToken } from "../../services/tokenServices";
+import { getUserById } from "../../services/userServices";
 
 export default async function DashboardPage() {
   // Get the auth token from cookies

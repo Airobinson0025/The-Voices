@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import * as z from "zod";
-import { getUserByEmail } from "@/app/services/userServices";
-import { validatePassword } from "@/app/services/userServices";
-import { createAuthToken } from "@/app/services/tokenServices";
+import { getUserByEmail } from "@/services/userServices";
+import { validatePassword } from "@/services/userServices";
+import { createAuthToken } from "@/services/tokenServices";
 
 type LoginRequest = z.infer<typeof loginSchema>;
 
