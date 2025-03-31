@@ -3,6 +3,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 
 // Define the validation schema
 const loginSchema = z.object({
@@ -17,6 +18,7 @@ type LoginFormValues = z.infer<typeof loginSchema>;
 export function LoginForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
   const {
     register,
@@ -45,10 +47,14 @@ export function LoginForm() {
       });
 
       const result = await response.json();
-      console.log("Login response", result);
 
       if (!response.ok) {
         throw new Error(result.message || "Failed to login");
+      }
+
+      if (result.success) {
+        // Handle successful login, e.g., redirect to dashboard
+        router.push("/dashboard");
       }
     } catch (err) {
       setError(
