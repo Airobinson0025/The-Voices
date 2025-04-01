@@ -1,15 +1,16 @@
 export type User = {
-    id: string
-    email: string
-    password: string
-    created_at: Date
-    updated_at: Date
-    display_name?: string
-    bio?: string
-}
+  id: string;
+  username: string;
+  email: string;
+  password: string;
+  created_at: Date;
+  updated_at: Date;
+  display_name?: string | null;
+  bio?: string | null;
+};
 
 export type UserRegistrationData = {
-    username: string
-    email: string
-    password: string
-}
+  username: string;
+  email: string;
+  password: string;
+};

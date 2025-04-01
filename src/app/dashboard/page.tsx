@@ -1,38 +1,23 @@
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
-import { verifyAuthToken } from "../../services/tokenServices";
-import { getUserById } from "../../services/userServices";
+"use client";
 
-export default async function DashboardPage() {
-  // Get the auth token from cookies
-  const cookieStore = await cookies();
-  const authToken = cookieStore.get("auth_token")?.value;
+import { useUser } from "@/context/user-context";
 
-  if (!authToken) {
-    redirect("/auth/login");
-  }
+export default function DashboardPage() {
+  const { user } = useUser();
 
-  // Verify the auth token
-  try {
-    const payload = await verifyAuthToken(authToken as string);
-    if (!payload) {
-      redirect("/auth/login");
-    }
-
-    // Fetch user data using the payload
-    const userId = payload.userId;
-    const user = await getUserById(userId);
-    if (!user) {
-      redirect("/auth/login");
-    }
-    // Render the dashboard with user data
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen">
-        <h1>Welcome to your dashboard, {user.username}!</h1>
+  return (
+    <div className="flex flex-col pt-24 w-full px-6 lg:px-12">
+      <div className="space-y-2">
+        <h1 className="text-3xl lg:text-4xl tracking-tight">
+          Welcome to Your Journal
+        </h1>
+        <h1 className="text-3xl lg:text-4xl tracking-tight text-indigo-500">
+          {user?.username}
+        </h1>
+        <p className="text-lg text-muted-foreground">
+          No one sees your entries until you choose to share them.
+        </p>
       </div>
-    );
-  } catch (error) {
-    console.error("Token verification failed:", error);
-    redirect("/login");
-  }
+    </div>
+  );
 }
