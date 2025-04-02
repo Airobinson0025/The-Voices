@@ -9,7 +9,7 @@ interface HeaderProps {
 
 export function Header({ navItems = mainNavItems }: HeaderProps) {
   return (
-    <header className="fixed top-0 z-40 w-full bg-background px-6 lg:px-12 shadow-b shadow-sm">
+    <header className="fixed top-0 z-40 w-full bg-background px-6 lg:px-12">
       <div className="flex h-16 items-center justify-between">
         <div className="">
           <Link href="/" className="">
@@ -19,11 +19,7 @@ export function Header({ navItems = mainNavItems }: HeaderProps) {
 
         <nav className="hidden lg:flex items-center space-x-6 text-md font-medium tracking-tight">
           {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="hover:-translate-y-1 transition-all duration-500"
-            >
+            <Link key={item.href} href={item.href} className="">
               {item.label}
             </Link>
           ))}

@@ -15,6 +15,13 @@
       "when": 1743019002659,
       "tag": "0001_graceful_emma_frost",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1743563172409,
+      "tag": "0002_sturdy_brood",
+      "breakpoints": true
     }
   ]
 }
