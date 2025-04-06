@@ -21,7 +21,7 @@ export default function JournalEditor() {
   });
 
   return (
-    <div className="border rounded-md p-2 shadow-md">
+    <div className="border rounded-md p-2 shadow-md dark:bg-secondary">
       <div className="border-b mb-4 pb-2 flex gap-2">
         <TooltipProvider>
           <Tooltip>
@@ -29,7 +29,9 @@ export default function JournalEditor() {
               <Button
                 onClick={() => editor?.chain().focus().toggleBold().run()}
                 className={`p-2 rounded ${
-                  editor?.isActive("bold") ? "bg-[#E78F8E] " : "bg-primary"
+                  editor?.isActive("bold")
+                    ? "bg-[#E78F8E] "
+                    : "bg-primary dark:bg-secondary"
                 }`}
               >
                 <Bold size={16} color="white" />
@@ -47,7 +49,9 @@ export default function JournalEditor() {
               <Button
                 onClick={() => editor?.chain().focus().toggleItalic().run()}
                 className={`p-2 rounded ${
-                  editor?.isActive("italic") ? "bg-[#E78F8E] " : "bg-primary"
+                  editor?.isActive("italic")
+                    ? "bg-[#E78F8E] "
+                    : "bg-primary dark:bg-secondary"
                 }`}
               >
                 <Italic size={16} color="white" />
