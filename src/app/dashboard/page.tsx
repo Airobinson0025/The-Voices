@@ -14,7 +14,7 @@ export default function DashboardPage() {
   const formattedUsername = firstLetterToUpperCase(user?.username || "");
 
   return (
-    <div className="flex flex-col pt-30 w-full px-6 lg:px-12">
+    <div className="flex flex-col pt-44 w-full px-6 lg:px-12">
       <div className="space-y-2">
         <h1 className="text-3xl lg:text-[40px] tracking-tight">
           Welcome to Your Journal
@@ -30,7 +30,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="flex items-center mt-4">
-        <Link href="/journal/new/{user?.id}">
+        <Link href="journal/new">
           <Button size="lg" className="tracking-tight mr-2.5 cursor-pointer">
             New Entry
           </Button>

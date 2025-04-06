@@ -24,7 +24,7 @@ export function Header({ navItems = mainNavItems }: HeaderProps) {
             </Link>
           ))}
           <Link href="/auth/login">
-            <Button size="lg" className="text-md">
+            <Button size="lg" className="text-md rounded-full">
               Login
             </Button>
           </Link>

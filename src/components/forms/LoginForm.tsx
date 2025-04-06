@@ -97,7 +97,7 @@ export function LoginForm() {
                 id="email"
                 type="email"
                 {...register("email")}
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#E78F8E] sm:text-sm sm:leading-6"
               />
               {errors.email && (
                 <p className="mt-1 text-sm text-red-600">
@@ -118,7 +118,7 @@ export function LoginForm() {
               <div className="text-sm">
                 <a
                   href="/forgot-password"
-                  className="font-semibold text-indigo-600 hover:text-indigo-500"
+                  className="font-semibold text-[#E78F8E] hover:text-[#E78F8E]/80"
                 >
                   Forgot password?
                 </a>
@@ -130,7 +130,7 @@ export function LoginForm() {
                 type="password"
                 autoComplete="current-password"
                 {...register("password")}
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#E78F8E] sm:text-sm sm:leading-6"
               />
               {errors.password && (
                 <p className="mt-1 text-sm text-red-600">
@@ -144,7 +144,7 @@ export function LoginForm() {
             <button
               type="submit"
               disabled={isLoading}
-              className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-indigo-300"
+              className="flex w-full justify-center rounded-md bg-[#E78F8E] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#E78F8E]/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-indigo-300"
             >
               {isLoading ? "Signing in..." : "Sign in"}
             </button>
@@ -195,7 +195,7 @@ export function LoginForm() {
           Not a member?{" "}
           <a
             href="/auth/register"
-            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+            className="font-semibold leading-6 text-[#E78F8E] hover:text-[#E78F8E]/80"
           >
             Create an account
           </a>
