@@ -29,6 +29,7 @@
     "@radix-ui/react-visually-hidden": "^1.1.2",
     "@supabase/supabase-js": "^2.49.3",
     "@testing-library/react": "^16.2.0",
+    "@tiptap/extension-paragraph": "^2.11.7",
     "@tiptap/extension-placeholder": "^2.11.7",
     "@tiptap/pm": "^2.11.7",
     "@tiptap/react": "^2.11.7",

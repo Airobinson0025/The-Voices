@@ -10,7 +10,7 @@ interface HeaderProps {
 
 export function Header({ navItems = mainNavItems }: HeaderProps) {
   return (
-    <header className="fixed top-0 z-40 w-full bg-background px-6 lg:px-12 border-b shadow-b shadow-sm">
+    <header className="fixed top-0 z-40 w-full bg-background px-6 lg:px-12">
       <div className="flex h-16 items-center justify-between">
         <div className="">
           <Link href="/" className="">
