@@ -45,7 +45,9 @@ export default function CreateEntry() {
           className="placeholder:text-muted-foreground text-xl py-4 pl-2 border-none shadow-none focus:ring-0 focus:outline-none focus:border-none"
           type="text"
         />
-        <p className="hidden md:inline text-[#E78F8E]">{formattedDate}</p>
+        <p className="hidden md:inline text-muted-foreground">
+          {formattedDate}
+        </p>
       </div>
 
       <div className="mt-6">
@@ -92,15 +94,15 @@ export default function CreateEntry() {
             </p>
 
             <div className="grid grid-cols-3 gap-4 mt-6">
-              <div className="flex flex-col items-center justify-center border py-2 rounded-md cursor-pointer shadow-lg dark:bg-secondary">
+              <div className="flex flex-col items-center justify-center border py-3 rounded-md cursor-pointer shadow-md dark:bg-secondary space-y-1">
                 <Lock size={20} />
                 <p className="">Private</p>
               </div>
-              <div className="flex flex-col items-center justify-center border py-2 rounded-md cursor-pointer shadow-lg dark:bg-secondary">
+              <div className="flex flex-col items-center justify-center border py-3 rounded-md cursor-pointer shadow-md dark:bg-secondary space-y-1">
                 <Users size={20} />
                 <p className="">Followers</p>
               </div>
-              <div className="flex flex-col items-center justify-center border py-2 rounded-md cursor-pointer shadow-lg dark:bg-secondary">
+              <div className="flex flex-col items-center justify-center border py-3 rounded-md cursor-pointer shadow-md dark:bg-secondary space-y-1">
                 <Globe size={20} />
                 <p className="">Public</p>
               </div>
